@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lyles Mom — Audience Intelligence & Personalization Strategist</title>
+  <meta name="description" content="Portfolio of Lyles Mom — Audience Intelligence & Personalization Strategist. Analytics at the intersection of music, media, healthcare, and corporate CX."/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+
+    /* ── Ticker ─────────────────────────────────────────────── */
+    .ticker {
+      background: var(--amber);
+      padding: 7px 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      overflow: hidden;
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 90;
+    }
+    .ticker-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: white;
+      background: rgba(0,0,0,0.25);
+      padding: 2px 8px;
+      flex-shrink: 0;
+    }
+    .ticker-scroll {
+      display: flex;
+      gap: 48px;
+      animation: ticker 32s linear infinite;
+      white-space: nowrap;
+    }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.8); }
+    .ticker-item span { color: white; font-weight: 500; }
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      border-bottom: 2px solid var(--border2);
+    }
+    .hero-main {
+      padding: 60px 40px;
+      border-right: 1px solid var(--border2);
+    }
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .kicker-tag {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--amber);
+      color: white;
+      padding: 4px 10px;
+    }
+    .kicker-sub {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(4rem, 8vw, 7rem);
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+    .hero-name em { font-style: italic; color: var(--muted); }
+    .hero-rule { width: 48px; height: 2px; background: var(--amber); margin-bottom: 24px; }
+    .hero-thesis {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+    .hero-thesis strong { color: var(--white); font-weight: 500; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* Hero sidebar */
+    .hero-sidebar { display: flex; flex-direction: column; }
+    .sidebar-stat-block {
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--border2);
+      flex: 1;
+    }
+    .ssb-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .ssb-num {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .ssb-num sub { font-family: var(--mono); font-size: 0.7rem; color: var(--amber); vertical-align: baseline; }
+    .ssb-desc { font-size: 0.76rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+
+    /* ── Red thesis strip ────────────────────────────────────── */
+    .thesis-strip {
+      background: var(--amber);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .ts-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      flex-shrink: 0;
+      border-right: 1px solid rgba(255,255,255,0.3);
+      padding-right: 24px;
+    }
+    .ts-text {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: white;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── Two-column content grid ────────────────────────────── */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+    }
+    .content-main { border-right: 1px solid var(--border2); }
+
+    /* Section bar */
+    .section-bar-wrap { padding: 0 40px; margin-top: 48px; margin-bottom: 0; }
+
+    /* Cover story */
+    .cover-story {
+      display: block;
+      padding: 40px 40px 36px;
+      border-bottom: 1px solid var(--border2);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+    }
+    .cover-story:hover { background: var(--bg2); }
+    .cover-story:hover .cover-title { color: var(--amber); }
+    .cover-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .cover-num {
+      font-family: var(--serif);
+      font-size: 4rem;
+      font-weight: 400;
+      color: var(--border3);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .cover-title {
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 14px;
+      transition: color 0.2s;
+    }
+    .cover-desc {
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 560px;
+      margin-bottom: 20px;
+    }
+    .cover-stats {
+      display: flex;
+      gap: 32px;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+    .cs-item { }
+    .cs-n { font-family: var(--serif); font-size: 1.3rem; color: var(--white); line-height: 1; }
+    .cs-l { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+
+    /* Project list */
+    .proj-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 18px;
+      padding: 22px 40px;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+      align-items: start;
+    }
+    .proj-item:hover { background: var(--bg2); }
+    .proj-item:hover .pi-title { color: var(--amber); }
+    .pi-num {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: var(--border3);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      padding-top: 4px;
+    }
+    .pi-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      transition: color 0.2s;
+      margin-bottom: 5px;
+    }
+    .pi-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.55; margin-bottom: 8px; }
+    .pi-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+
+    /* Right sidebar */
+    .content-sidebar { }
+    .sb-section { border-bottom: 1px solid var(--border2); }
+    .sb-head {
+      padding: 12px 20px;
+      border-top: 2px solid var(--amber);
+      border-bottom: 1px solid var(--border2);
+      background: var(--bg2);
+    }
+    .sb-head span {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+    .sb-bio {
+      padding: 18px 20px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.7;
+      border-bottom: 1px solid var(--border);
+    }
+    .sb-bio strong { color: var(--white); }
+    .sb-cta { padding: 18px 20px; }
+    .metric-list { list-style: none; }
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8rem;
+    }
+    .metric-row:last-child { border-bottom: none; }
+    .mk { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; color: var(--muted); }
+    .mv { color: var(--white); font-weight: 500; }
+    .skill-grid { padding: 16px 20px; display: flex; flex-wrap: wrap; gap: 5px; }
+
+    /* ── Bottom strip ────────────────────────────────────────── */
+    .bottom-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border2);
+      border-bottom: 1px solid var(--border2);
+    }
+    .bc {
+      padding: 28px 24px;
+      border-right: 1px solid var(--border2);
+      border-top: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .bc:last-child { border-right: none; }
+    .bc:hover { border-top-color: var(--amber); background: var(--bg2); }
+    .bc-label { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 8px; }
+    .bc-val { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--white); letter-spacing: -0.03em; line-height: 1; }
+    .bc-val em { font-style: normal; color: var(--amber); font-family: var(--mono); font-size: 0.8rem; }
+    .bc-sub { font-size: 0.72rem; color: var(--muted); margin-top: 5px; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-sidebar { display: none; }
+      .hero-main { padding: 40px 20px; }
+      .content-grid { grid-template-columns: 1fr; }
+      .content-sidebar { display: none; }
+      .cover-story { padding: 28px 20px; }
+      .proj-item { padding: 18px 20px; grid-template-columns: 40px 1fr; }
+      .bottom-strip { grid-template-columns: 1fr 1fr; }
+      .ticker { padding: 7px 20px; }
+      .thesis-strip { padding: 18px 20px; gap: 16px; }
+      .ts-label { display: none; }
+      .section-bar-wrap { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Lyles <span>Mom</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main class="page">
+
+  <!-- Ticker -->
+  <div class="ticker">
+    <span class="ticker-label">Now</span>
+    <div class="ticker-scroll">
+      <span class="ticker-item">Billboard Audience Intelligence — <span>Divergence Score Framework</span></span>
+      <span class="ticker-item">The Measurement Gap — <span>111,527+ records</span></span>
+      <span class="ticker-item">The Cost of Friction — <span>$37.6M revenue at risk modeled</span></span>
+      <span class="ticker-item">Engaged But Empty — <span>Why engagement ≠ loyalty</span></span>
+      <span class="ticker-item">MCP Case Study — <span>100% market adoption</span></span>
+      <span class="ticker-item">Open to: Audience Intelligence · Measurement Strategy · Consumer Insights</span>
+      <span class="ticker-item">Billboard Audience Intelligence — <span>Divergence Score Framework</span></span>
+      <span class="ticker-item">The Measurement Gap — <span>111,527+ records</span></span>
+      <span class="ticker-item">The Cost of Friction — <span>$37.6M revenue at risk modeled</span></span>
+      <span class="ticker-item">Engaged But Empty — <span>Why engagement ≠ loyalty</span></span>
+      <span class="ticker-item">MCP Case Study — <span>100% market adoption</span></span>
+      <span class="ticker-item">Open to: Audience Intelligence · Measurement Strategy · Consumer Insights</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-main fade-up">
+      <div class="hero-kicker">
+        <span class="kicker-tag">Portfolio 2026</span>
+        <span class="kicker-sub">Audience Intelligence & Personalization Strategist</span>
+      </div>
+      <h1 class="hero-name">Lyles<br/><em>Mom</em></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-thesis">
+        I find where <strong>institutional metrics diverge from real behavior</strong> —
+        and build frameworks that make the gap visible, measurable, and actionable.
+        Music. Streaming. Healthcare. Corporate CX.
+      </p>
+      <div class="hero-cta">
+        <a href="work.html" class="btn primary">View All Work →</a>
+        <a href="https://github.com/llyles97-cmyk" target="_blank" class="btn">GitHub ↗</a>
+        <a href="contact.html" class="btn">Contact</a>
+      </div>
+    </div>
+    <div class="hero-sidebar fade-up delay-2">
+      <div class="sidebar-stat-block">
+        <span class="ssb-label">Portfolio Projects</span>
+        <div class="ssb-num">8</div>
+        <div class="ssb-desc">Across 3 industries — all live on GitHub</div>
+      </div>
+      <div class="sidebar-stat-block">
+        <span class="ssb-label">Records Analyzed</span>
+        <div class="ssb-num">111<sub>k+</sub></div>
+        <div class="ssb-desc">Real public datasets, not synthetic</div>
+      </div>
+      <div class="sidebar-stat-block">
+        <span class="ssb-label">Revenue Modeled</span>
+        <div class="ssb-num">$37<sub>M</sub></div>
+        <div class="ssb-desc">At risk from CX friction</div>
+      </div>
+      <div class="sidebar-stat-block">
+        <span class="ssb-label">Market Adoption</span>
+        <div class="ssb-num">100<sub>%</sub></div>
+        <div class="ssb-desc">MCP rollout across all target markets</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thesis strip -->
+  <div class="thesis-strip">
+    <span class="ts-label">Through-Line</span>
+    <p class="ts-text">"The gap between what institutions measure and what audiences actually do is not a bug — it is a feature of how measurement systems get built."</p>
+  </div>
+
+  <!-- Content + Sidebar -->
+  <div class="content-grid">
+    <div class="content-main">
+
+      <div class="section-bar-wrap">
+        <div class="section-bar">
+          <span class="section-bar-label">Featured Work</span>
+          <div class="section-bar-line"></div>
+          <span class="issue-badge">Top Project</span>
+        </div>
+      </div>
+
+      <!-- Cover story -->
+      <a class="cover-story" href="https://github.com/llyles97-cmyk/billboard-audience-intelligence" target="_blank">
+        <div class="cover-meta">
+          <span class="cover-num">01</span>
+          <div style="display:flex;gap:8px;">
+            <span class="tag amber">Music / Media</span>
+            <span class="tag cyan">Tableau Dashboard</span>
+          </div>
+        </div>
+        <h2 class="cover-title">Billboard Audience Intelligence</h2>
+        <p class="cover-desc">
+          For over sixty years, Billboard's chart methodology has functioned as the industry's
+          definition of cultural relevance. It was built for radio. Streaming eliminated the
+          infrastructure advantage radio created. This project measures where the gap opened —
+          and how wide it is across seven audience archetypes.
+        </p>
+        <div class="cover-stats">
+          <div class="cs-item"><div class="cs-n">24,676</div><div class="cs-l">Matched Records</div></div>
+          <div class="cs-item"><div class="cs-n">7</div><div class="cs-l">Archetypes</div></div>
+          <div class="cs-item"><div class="cs-n">+1.38</div><div class="cs-l">Country Score</div></div>
+          <div class="cs-item"><div class="cs-n">−3.11</div><div class="cs-l">Streaming Native</div></div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="tag amber">SQL</span>
+          <span class="tag amber">Python</span>
+          <span class="tag">Divergence Score</span>
+          <span class="tag">Segmentation</span>
+          <span class="tag">2000–2021</span>
+        </div>
+      </a>
+
+      <!-- Section bar 2 -->
+      <div class="section-bar-wrap" style="margin-top:40px;">
+        <div class="section-bar">
+          <span class="section-bar-label">More Projects</span>
+          <div class="section-bar-line"></div>
+          <a href="work.html" style="font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color=''">All 8 →</a>
+        </div>
+      </div>
+
+      <a class="proj-item" href="https://github.com/llyles97-cmyk/measurement-gap" target="_blank">
+        <span class="pi-num">02</span>
+        <div>
+          <h3 class="pi-title">The Measurement Gap</h3>
+          <p class="pi-desc">Cross-industry divergence score audit — music, consumer streaming, healthcare. 111,527+ real records. One framework, three domains, one consistent finding.</p>
+          <div class="pi-tags"><span class="tag orange">Cross-Industry</span><span class="tag amber">SQL</span><span class="tag amber">Python</span><span class="tag cyan">Gamma Deck</span></div>
+        </div>
+      </a>
+
+      <a class="proj-item" href="https://github.com/llyles97-cmyk/cost-of-friction" target="_blank">
+        <span class="pi-num">03</span>
+        <div>
+          <h3 class="pi-title">The Cost of Friction</h3>
+          <p class="pi-desc">Revenue impact model for CX breakdown in financial services. $37.6M at risk across 100,000+ CFPB complaints. Includes VP-ready executive memo.</p>
+          <div class="pi-tags"><span class="tag lime">Financial Services</span><span class="tag amber">Python</span><span class="tag cyan">Exec Memo</span></div>
+        </div>
+      </a>
+
+      <a class="proj-item" href="https://github.com/llyles97-cmyk/engaged-but-empty" target="_blank">
+        <span class="pi-num">04</span>
+        <div>
+          <h3 class="pi-title">Engaged But Empty</h3>
+          <p class="pi-desc">Why streaming engagement metrics fail to predict loyalty. SQL analysis of 114,000+ Spotify tracks + industry research. Proposes retention rate, conversion depth, identity signal.</p>
+          <div class="pi-tags"><span class="tag amber">SQL</span><span class="tag">Spotify</span><span class="tag">Loyalty Analytics</span></div>
+        </div>
+      </a>
+
+      <a class="proj-item" href="work.html">
+        <span class="pi-num" style="font-size:1.2rem;color:var(--muted);">+4</span>
+        <div>
+          <h3 class="pi-title">TikTok Strategy · Comeback Index · Xfinity · MCP Case Study</h3>
+          <p class="pi-desc">Platform strategy, chart analytics, telecom CX classification, and a professional case study with 100% adoption outcome across international markets.</p>
+          <div class="pi-tags"><span class="tag">Platform Strategy</span><span class="tag">CX</span><span class="tag cyan">Real Org Impact</span></div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Sidebar -->
+    <div class="content-sidebar">
+      <div class="sb-section">
+        <div class="sb-head"><span>About</span></div>
+        <div class="sb-bio">Personalization strategist and audience intelligence analyst. <strong>3+ years at a Fortune 500</strong> building global personalization systems across 10+ markets.</div>
+        <div class="sb-cta"><a href="about.html" class="btn" style="width:100%;justify-content:center;">Full Bio →</a></div>
+      </div>
+      <div class="sb-section">
+        <div class="sb-head"><span>By the Numbers</span></div>
+        <ul class="metric-list">
+          <li class="metric-row"><span class="mk">Experience</span><span class="mv">3+ Years</span></li>
+          <li class="metric-row"><span class="mk">Markets</span><span class="mv">10+ Global</span></li>
+          <li class="metric-row"><span class="mk">Adoption</span><span class="mv">100%</span></li>
+          <li class="metric-row"><span class="mk">Industries</span><span class="mv">4 Domains</span></li>
+          <li class="metric-row"><span class="mk">Location</span><span class="mv">Philadelphia</span></li>
+        </ul>
+      </div>
+      <div class="sb-section">
+        <div class="sb-head"><span>Skills</span></div>
+        <div class="skill-grid">
+          <span class="tag amber">SQL</span><span class="tag amber">Python</span><span class="tag amber">Tableau</span>
+          <span class="tag">Salesforce MCP</span><span class="tag">Segmentation</span>
+          <span class="tag">A/B Testing</span><span class="tag cyan">Amplitude</span>
+          <span class="tag">BigQuery</span><span class="tag">GA4</span>
+        </div>
+      </div>
+      <div class="sb-section">
+        <div class="sb-head"><span>Cult Circulation</span></div>
+        <div class="sb-bio">Analyzing how <strong>attention and trends circulate</strong> through culture. Media brand on Instagram and Substack.</div>
+        <div class="sb-cta"><a href="https://instagram.com/cultcirculation" target="_blank" class="btn" style="width:100%;justify-content:center;">@cultcirculation ↗</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom strip -->
+  <div class="bottom-strip fade-up">
+    <div class="bc">
+      <span class="bc-label">Billboard Audience Intelligence</span>
+      <div class="bc-val">+1.38 <em>/ −3.11</em></div>
+      <div class="bc-sub">Country vs. Streaming Native divergence</div>
+    </div>
+    <div class="bc">
+      <span class="bc-label">The Measurement Gap</span>
+      <div class="bc-val">3 <em>industries</em></div>
+      <div class="bc-sub">Music · Streaming · Healthcare</div>
+    </div>
+    <div class="bc">
+      <span class="bc-label">The Cost of Friction</span>
+      <div class="bc-val">$37.6<em>M</em></div>
+      <div class="bc-sub">Revenue at risk identified</div>
+    </div>
+    <div class="bc">
+      <span class="bc-label">MCP Case Study</span>
+      <div class="bc-val">100<em>%</em></div>
+      <div class="bc-sub">Market adoption across all targets</div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Lyles Mom</p>
+  <p><a href="mailto:llyles97@gmail.com">llyles97@gmail.com</a></p>
+  <p><a href="https://github.com/llyles97-cmyk" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="https://instagram.com/cultcirculation" target="_blank">@cultcirculation</a></p>
+</footer>
+
+</body>
+</html>
