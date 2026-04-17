@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lyles Mom — Audience Intelligence & Personalization Strategist</title>
+  <meta name="description" content="Audience Intelligence & Personalization Strategist — 3+ years at Fortune 500, 8 portfolio projects, $37.6M revenue modeled."/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+
+    /* ── Ticker ─────────────────────────────────────────────── */
+    .ticker {
+      background: #166534;
+      padding: 0;
+      height: 34px;
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 90;
+    }
+    .ticker-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: white;
+      background: rgba(0,0,0,0.22);
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      border-right: 1px solid rgba(255,255,255,0.18);
+      white-space: nowrap;
+    }
+    .ticker-overflow { overflow: hidden; flex: 1; display: flex; align-items: center; }
+    .ticker-track {
+      display: flex;
+      animation: tickerMove 38s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    @keyframes tickerMove { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      padding: 0 32px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ticker-item span { color: white; font-weight: 500; }
+    .ticker-sep {
+      width: 4px; height: 4px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-right: 32px;
+    }
+    .ticker-pill {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 1px 7px;
+      flex-shrink: 0;
+    }
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      border-bottom: 2px solid var(--black);
+      min-height: calc(100vh - var(--nav-h) - 36px);
+      background-color: #ffffff;
+      background-image:
+        radial-gradient(ellipse 70% 90% at 8% 55%, #dcfce7 0%, transparent 60%),
+        linear-gradient(#16653309 1px, transparent 1px),
+        linear-gradient(90deg, #16653309 1px, transparent 1px);
+      background-size: auto, 32px 32px, 32px 32px;
+    }
+
+    .hero-main {
+      padding: 64px 48px 56px 40px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Value prop — the 2-second hook */
+    .hero-hook {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #166534;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .hero-hook::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: #166534;
+      flex-shrink: 0;
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3.8rem, 7.5vw, 6.8rem);
+      font-weight: 400;
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      color: var(--black);
+      margin-bottom: 28px;
+    }
+    .hero-name em { font-style: italic; color: #c8c8c8; }
+
+    .hero-thesis {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: #444444;
+      max-width: 480px;
+      margin-bottom: 44px;
+      border-left: 3px solid #166534;
+      padding-left: 18px;
+    }
+    .hero-thesis strong { color: var(--black); font-weight: 500; }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 13px 24px;
+      background: #166534;
+      color: white;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .cta-primary:hover { background: #14532d; }
+
+    .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 12px 20px;
+      border: 1.5px solid #166534;
+      color: #166534;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .cta-secondary:hover { background: #f0fdf4; }
+
+    .cta-ghost {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999999;
+      text-decoration: none;
+      transition: color 0.2s;
+      padding: 12px 0;
+    }
+    .cta-ghost:hover { color: var(--black); }
+
+    /* Hero sidebar — stats */
+    .hero-sidebar {
+      display: flex;
+      flex-direction: column;
+      background: rgba(255,255,255,0.6);
+    }
+
+    .stat-block {
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--border);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: background 0.15s;
+    }
+    .stat-block:last-child { border-bottom: none; }
+    .stat-block:hover { background: #f7fef9; }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #166534;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .stat-number {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 400;
+      color: var(--black);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .stat-number sub {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: #166534;
+      vertical-align: baseline;
+      letter-spacing: 0.05em;
+    }
+
+    .stat-desc {
+      font-size: 0.78rem;
+      color: #999999;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+
+    /* ── Green thesis strip ─────────────────────────────────── */
+    .thesis-strip {
+      background: #166534;
+      padding: 22px 40px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .ts-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      flex-shrink: 0;
+      border-right: 1px solid rgba(255,255,255,0.2);
+      padding-right: 28px;
+    }
+    .ts-text {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.92);
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── Quick facts bar ────────────────────────────────────── */
+    .facts-bar {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      background: #fafafa;
+    }
+    .fact-cell {
+      flex: 1;
+      padding: 14px 24px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .fact-cell:last-child { border-right: none; }
+    .fact-icon {
+      width: 28px;
+      height: 28px;
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    .fact-text { }
+    .fact-val { font-size: 0.85rem; font-weight: 500; color: var(--black); display: block; line-height: 1.2; }
+    .fact-key { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999999; }
+
+    /* ── Two-col content ────────────────────────────────────── */
+    .content-grid { display: grid; grid-template-columns: 1fr 300px; }
+    .content-main { border-right: 1px solid var(--border); }
+    .section-bar-wrap { padding: 0 40px; margin-top: 44px; }
+
+    /* Cover story */
+    .cover-story {
+      display: block;
+      padding: 36px 40px 32px;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+      position: relative;
+    }
+    .cover-story::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 0;
+      background: #166534;
+      transition: width 0.2s;
+    }
+    .cover-story:hover::before { width: 3px; }
+    .cover-story:hover { background: #f7fef9; }
+    .cover-story:hover .cover-title { color: #166534; }
+
+    .cover-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .cover-num {
+      font-family: var(--serif);
+      font-size: 3.5rem;
+      font-weight: 400;
+      color: #eeeeee;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .cover-title {
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 14px;
+      transition: color 0.2s;
+    }
+
+    .cover-desc {
+      font-size: 0.93rem;
+      color: #555555;
+      line-height: 1.8;
+      max-width: 540px;
+      margin-bottom: 20px;
+    }
+
+    .cover-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+    .cs-cell {
+      padding: 12px 16px;
+      border-right: 1px solid var(--border);
+    }
+    .cs-cell:last-child { border-right: none; }
+    .cs-n { font-family: var(--serif); font-size: 1.3rem; color: var(--black); line-height: 1; }
+    .cs-l { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999999; margin-top: 5px; }
+
+    /* Project list */
+    .proj-item {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      gap: 20px;
+      padding: 22px 40px;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+      align-items: center;
+      position: relative;
+    }
+    .proj-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 0;
+      background: #166534;
+      transition: width 0.2s;
+    }
+    .proj-item:hover::before { width: 3px; }
+    .proj-item:hover { background: #f7fef9; }
+    .proj-item:hover .pi-title { color: #166534; }
+
+    .pi-num {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #e0e0e0;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .pi-body { }
+    .pi-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      transition: color 0.2s;
+      margin-bottom: 5px;
+    }
+    .pi-desc { font-size: 0.82rem; color: #666666; line-height: 1.55; margin-bottom: 9px; }
+    .pi-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+    .pi-arrow { font-size: 1rem; color: #cccccc; transition: all 0.2s; flex-shrink: 0; }
+    .proj-item:hover .pi-arrow { color: #166534; transform: translate(3px,-3px); }
+
+    /* Sidebar */
+    .content-sidebar { }
+    .sb-section { border-bottom: 1px solid var(--border); }
+    .sb-head {
+      padding: 12px 22px;
+      border-top: 2px solid #166534;
+      border-bottom: 1px solid var(--border);
+      background: #f7fef9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sb-head span { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: #166534; }
+    .sb-bio { padding: 16px 22px; font-size: 0.84rem; color: #555555; line-height: 1.7; border-bottom: 1px solid var(--border); }
+    .sb-bio strong { color: var(--black); }
+    .sb-cta { padding: 14px 22px; }
+    .sb-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #166534;
+      text-decoration: none;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.15s;
+    }
+    .sb-link:last-child { border-bottom: none; }
+    .sb-link:hover { color: #14532d; }
+
+    .metric-list { list-style: none; }
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 22px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.82rem;
+    }
+    .metric-row:last-child { border-bottom: none; }
+    .mk { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; color: #999999; }
+    .mv { color: var(--black); font-weight: 500; }
+
+    .skill-grid { padding: 14px 22px; display: flex; flex-wrap: wrap; gap: 5px; }
+
+    /* ── Bottom stat strip ──────────────────────────────────── */
+    .bottom-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 2px solid var(--black);
+      background: #fafafa;
+    }
+    .bc {
+      padding: 28px 24px;
+      border-right: 1px solid var(--border);
+      border-top: 3px solid transparent;
+      transition: all 0.15s;
+    }
+    .bc:last-child { border-right: none; }
+    .bc:hover { border-top-color: #166534; background: #f0fdf4; }
+    .bc-label { font-family: var(--mono); font-size: 0.57rem; letter-spacing: 0.16em; text-transform: uppercase; color: #999999; display: block; margin-bottom: 8px; }
+    .bc-val { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; color: var(--black); letter-spacing: -0.03em; line-height: 1; }
+    .bc-val em { font-style: normal; color: #166534; font-family: var(--mono); font-size: 0.82rem; }
+    .bc-sub { font-size: 0.73rem; color: #999999; margin-top: 6px; }
+
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-sidebar { display: none; }
+      .hero-main { padding: 48px 24px 40px; }
+      .content-grid { grid-template-columns: 1fr; }
+      .content-sidebar { display: none; }
+      .cover-story { padding: 28px 24px; }
+      .proj-item { grid-template-columns: 44px 1fr; padding: 18px 24px; }
+      .pi-arrow { display: none; }
+      .bottom-strip { grid-template-columns: 1fr 1fr; }
+      .facts-bar { flex-wrap: wrap; }
+      .fact-cell { min-width: 50%; }
+      .ticker-label { padding: 0 12px; font-size: 0.52rem; }
+      .section-bar-wrap { padding: 0 24px; }
+      .thesis-strip { padding: 18px 24px; gap: 16px; }
+      .ts-label { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Lyles <span>Mom</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main class="page">
+
+  <!-- Ticker -->
+  <div class="ticker">
+    <span class="ticker-label">Now</span>
+    <div class="ticker-overflow">
+      <div class="ticker-track">
+        <span class="ticker-item"><span class="ticker-pill">Open</span> Available for full-time roles</span>
+        <span class="ticker-sep"></span>
+        <span class="ticker-item">Billboard Audience Intelligence — <span>Divergence Score Framework · 24,676 records</span></span>
+        <span class="ticker-sep"></span>
+        <span class="ticker-item">The Measurement Gap — <span>111,527+ records · 3 industries</span></span>
+        <span class="ticker-sep"></span>
+        <span class="ticker-item">The Cost of Friction — <span>$37.6M revenue at risk modeled</span></span>
+        <span class="ticker-sep"></span>
+        <span class="ticker-item">MCP Case Study — <span>100% market adoption across all targets</span></span>
+        <span class="ticker-sep"></span>
+        <span class="ticker-item">Targeting — <span>Spotify · Luminate · Billboard · UMG · Netflix</span></span>
+        <span class="ticker-sep"></span>
+        <!-- duplicate for seamless loop -->
+        <span class="ticker-item"><span class="ticker-pill">Open</span> Available for full-time roles</span>
+        <span class="ticker-sep"></span>
+        <span class="ticker-item">Billboard Audience Intelligence — <span>Divergence Score Framework · 24,676 records</span></span>
+        <span class="ticker-sep"></span>
+        <span class="ticker-item">The Measurement Gap — <span>111,527+ records · 3 industries</span></span>
+        <span class="ticker-sep"></span>
+        <span class="ticker-item">The Cost of Friction — <span>$37.6M revenue at risk modeled</span></span>
+        <span class="ticker-sep"></span>
+        <span class="ticker-item">MCP Case Study — <span>100% market adoption across all targets</span></span>
+        <span class="ticker-sep"></span>
+        <span class="ticker-item">Targeting — <span>Spotify · Luminate · Billboard · UMG · Netflix</span></span>
+        <span class="ticker-sep"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-main fade-up">
+      <div>
+        <div class="hero-hook">Audience Intelligence & Personalization Strategist</div>
+        <h1 class="hero-name">Lyles<br/><em>Mom</em></h1>
+        <p class="hero-thesis">
+          I find where <strong>institutional metrics diverge from real behavior</strong> —
+          and build frameworks that make the gap visible, measurable, and actionable.
+          Music. Streaming. Healthcare. Corporate CX.
+        </p>
+      </div>
+      <div class="hero-cta">
+        <a href="work.html" class="cta-primary">View Portfolio →</a>
+        <a href="about.html#case-study" class="cta-secondary">Download Case Study</a>
+        <a href="https://github.com/llyles97-cmyk" target="_blank" class="cta-ghost">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="hero-sidebar fade-up delay-2">
+      <div class="stat-block">
+        <span class="stat-label">Portfolio Projects</span>
+        <div class="stat-number">8</div>
+        <div class="stat-desc">Across music, streaming, healthcare & CX — all live on GitHub</div>
+      </div>
+      <div class="stat-block">
+        <span class="stat-label">Records Analyzed</span>
+        <div class="stat-number">111<sub>k+</sub></div>
+        <div class="stat-desc">Real public datasets with full methodology documentation</div>
+      </div>
+      <div class="stat-block">
+        <span class="stat-label">Revenue Modeled</span>
+        <div class="stat-number">$37<sub>M</sub></div>
+        <div class="stat-desc">Estimated at risk from CX friction — with executive memo output</div>
+      </div>
+      <div class="stat-block">
+        <span class="stat-label">Market Adoption</span>
+        <div class="stat-number">100<sub>%</sub></div>
+        <div class="stat-desc">MCP rollout across all international target markets at Merck</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thesis strip -->
+  <div class="thesis-strip">
+    <span class="ts-label">The Through-Line</span>
+    <p class="ts-text">"The gap between what institutions measure and what audiences actually do is not a bug — it is a feature of how measurement systems get built."</p>
+  </div>
+
+  <!-- Quick facts bar -->
+  <div class="facts-bar">
+    <div class="fact-cell">
+      <div class="fact-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+      </div>
+      <div class="fact-text"><span class="fact-val">Philadelphia, PA</span><span class="fact-key">Location · Open to Remote</span></div>
+    </div>
+    <div class="fact-cell">
+      <div class="fact-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+        </svg>
+      </div>
+      <div class="fact-text"><span class="fact-val">Merck (MSD)</span><span class="fact-key">Current · Global Analytics & Personalization</span></div>
+    </div>
+    <div class="fact-cell">
+      <div class="fact-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+        </svg>
+      </div>
+      <div class="fact-text"><span class="fact-val">MSB Business Communications</span><span class="fact-key">UMPI · In Progress</span></div>
+    </div>
+    <div class="fact-cell">
+      <div class="fact-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+      </div>
+      <div class="fact-text"><span class="fact-val">SQL · Python · Tableau · Salesforce MCP</span><span class="fact-key">Core Technical Stack</span></div>
+    </div>
+  </div>
+
+  <!-- Content + Sidebar -->
+  <div class="content-grid">
+    <div class="content-main">
+
+      <div class="section-bar-wrap">
+        <div class="section-bar">
+          <span class="section-bar-label">Featured Work</span>
+          <div class="section-bar-line"></div>
+          <span class="issue-badge">Top Project</span>
+        </div>
+      </div>
+
+      <!-- Cover story -->
+      <a class="cover-story" href="https://github.com/llyles97-cmyk/billboard-audience-intelligence" target="_blank">
+        <div class="cover-eyebrow">
+          <span class="cover-num">01</span>
+          <span class="tag green">Music / Media</span>
+          <span class="tag blue">Tableau Dashboard</span>
+          <span class="tag teal">Live on GitHub</span>
+        </div>
+        <h2 class="cover-title">Billboard Audience Intelligence</h2>
+        <p class="cover-desc">
+          Billboard's chart methodology was built for radio — a system defined by scarcity, geography, and gatekeeping.
+          Streaming eliminated all three. This project applies a divergence score framework to 24,676 matched Billboard
+          and Spotify records to measure exactly where the gap opened, and which audience segments it affected most.
+        </p>
+        <div class="cover-stats">
+          <div class="cs-cell"><div class="cs-n">24,676</div><div class="cs-l">Matched Records</div></div>
+          <div class="cs-cell"><div class="cs-n">7</div><div class="cs-l">Audience Archetypes</div></div>
+          <div class="cs-cell"><div class="cs-n">+1.38</div><div class="cs-l">Country Divergence</div></div>
+          <div class="cs-cell"><div class="cs-n">−3.11</div><div class="cs-l">Streaming Native</div></div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="tag green">SQL</span><span class="tag green">Python</span>
+          <span class="tag">Divergence Score</span><span class="tag">Audience Segmentation</span><span class="tag">2000–2021</span>
+        </div>
+      </a>
+
+      <!-- Section bar -->
+      <div class="section-bar-wrap" style="margin-top:36px;">
+        <div class="section-bar">
+          <span class="section-bar-label">More Projects</span>
+          <div class="section-bar-line"></div>
+          <a href="work.html" style="font-family:var(--mono);font-size:0.6rem;letter-spacing:.1em;text-transform:uppercase;color:#999;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#166534'" onmouseout="this.style.color='#999'">View All 8 →</a>
+        </div>
+      </div>
+
+      <a class="proj-item" href="https://github.com/llyles97-cmyk/measurement-gap" target="_blank">
+        <span class="pi-num">02</span>
+        <div class="pi-body">
+          <h3 class="pi-title">The Measurement Gap</h3>
+          <p class="pi-desc">Cross-industry divergence score audit applied to music, consumer streaming, and healthcare using 111,527+ real records. One framework. Three industries. One consistent finding.</p>
+          <div class="pi-tags"><span class="tag teal">Cross-Industry</span><span class="tag green">SQL</span><span class="tag green">Python</span><span class="tag blue">Gamma Deck</span></div>
+        </div>
+        <span class="pi-arrow">↗</span>
+      </a>
+
+      <a class="proj-item" href="https://github.com/llyles97-cmyk/cost-of-friction" target="_blank">
+        <span class="pi-num">03</span>
+        <div class="pi-body">
+          <h3 class="pi-title">The Cost of Friction</h3>
+          <p class="pi-desc">Revenue impact model for CX breakdown in financial services. CFPB complaint analysis, friction scoring, $37.6M at risk identified. Delivered as a VP-ready executive memo.</p>
+          <div class="pi-tags"><span class="tag amber">Financial Services</span><span class="tag green">Python</span><span class="tag blue">Exec Memo</span></div>
+        </div>
+        <span class="pi-arrow">↗</span>
+      </a>
+
+      <a class="proj-item" href="https://github.com/llyles97-cmyk/engaged-but-empty" target="_blank">
+        <span class="pi-num">04</span>
+        <div class="pi-body">
+          <h3 class="pi-title">Engaged But Empty</h3>
+          <p class="pi-desc">Strategic audit of why streaming engagement metrics fail to predict loyalty. SQL analysis of 114,000+ Spotify tracks paired with industry research.</p>
+          <div class="pi-tags"><span class="tag green">SQL</span><span class="tag">Spotify</span><span class="tag">Loyalty Analytics</span></div>
+        </div>
+        <span class="pi-arrow">↗</span>
+      </a>
+
+      <a class="proj-item" href="work.html">
+        <span class="pi-num" style="font-size:1.1rem;color:#dddddd;padding-top:6px;">+4</span>
+        <div class="pi-body">
+          <h3 class="pi-title">TikTok Strategy · Comeback Index · Xfinity · MCP Case Study</h3>
+          <p class="pi-desc">Platform strategy, chart analytics, telecom CX classification, and a professional case study with 100% adoption outcome across international markets.</p>
+          <div class="pi-tags"><span class="tag">Platform Strategy</span><span class="tag">CX Analytics</span><span class="tag blue">Real Org Impact</span></div>
+        </div>
+        <span class="pi-arrow" style="color:#166534">→</span>
+      </a>
+
+    </div>
+
+    <!-- Sidebar -->
+    <div class="content-sidebar">
+      <div class="sb-section">
+        <div class="sb-head"><span>About</span></div>
+        <div class="sb-bio">
+          Personalization strategist and audience intelligence analyst with <strong>3+ years at Merck (MSD)</strong> building global
+          personalization systems across 10+ international markets.
+          Currently targeting roles at the intersection of data, behavior, and culture.
+        </div>
+        <div class="sb-cta">
+          <a href="about.html" class="sb-link">Read Full Bio <span>→</span></a>
+          <a href="contact.html" class="sb-link">Get in Touch <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-head"><span>Quick Stats</span></div>
+        <ul class="metric-list">
+          <li class="metric-row"><span class="mk">Experience</span><span class="mv">3+ Years</span></li>
+          <li class="metric-row"><span class="mk">Markets Led</span><span class="mv">10+ Global</span></li>
+          <li class="metric-row"><span class="mk">Adoption Rate</span><span class="mv">100%</span></li>
+          <li class="metric-row"><span class="mk">Industries</span><span class="mv">4 Domains</span></li>
+          <li class="metric-row"><span class="mk">Location</span><span class="mv">Philadelphia, PA</span></li>
+          <li class="metric-row"><span class="mk">Availability</span><span class="mv" style="color:#166534">Open Now</span></li>
+        </ul>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-head"><span>Core Skills</span></div>
+        <div class="skill-grid">
+          <span class="tag green">SQL</span>
+          <span class="tag green">Python</span>
+          <span class="tag green">Tableau</span>
+          <span class="tag">Salesforce MCP</span>
+          <span class="tag">Segmentation</span>
+          <span class="tag">A/B Testing</span>
+          <span class="tag blue">Amplitude</span>
+          <span class="tag">BigQuery</span>
+          <span class="tag">GA4</span>
+          <span class="tag">First-Party Data</span>
+        </div>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-head"><span>Target Roles</span></div>
+        <ul class="metric-list">
+          <li class="metric-row"><span class="mk">Primary</span><span class="mv" style="font-size:.78rem">Audience Intelligence</span></li>
+          <li class="metric-row"><span class="mk">Also</span><span class="mv" style="font-size:.78rem">Consumer Insights</span></li>
+          <li class="metric-row"><span class="mk">Also</span><span class="mv" style="font-size:.78rem">Measurement Strategy</span></li>
+          <li class="metric-row"><span class="mk">Companies</span><span class="mv" style="font-size:.75rem;color:#555">Spotify · Luminate · Netflix · UMG</span></li>
+        </ul>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-head"><span>Brand</span></div>
+        <div class="sb-bio"><strong>Cult Circulation</strong> — analyzing how attention and trends circulate through culture.</div>
+        <div class="sb-cta">
+          <a href="https://instagram.com/cultcirculation" target="_blank" class="sb-link">@cultcirculation <span>↗</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom strip -->
+  <div class="bottom-strip">
+    <div class="bc">
+      <span class="bc-label">Billboard Audience Intelligence</span>
+      <div class="bc-val">+1.38 <em>/ −3.11</em></div>
+      <div class="bc-sub">Country overrepresented · Streaming Native undercounted</div>
+    </div>
+    <div class="bc">
+      <span class="bc-label">The Measurement Gap</span>
+      <div class="bc-val">3 <em>industries</em></div>
+      <div class="bc-sub">Music · Consumer Streaming · Healthcare</div>
+    </div>
+    <div class="bc">
+      <span class="bc-label">The Cost of Friction</span>
+      <div class="bc-val">$37.6<em>M</em></div>
+      <div class="bc-sub">Revenue at risk from CX breakdown</div>
+    </div>
+    <div class="bc">
+      <span class="bc-label">MCP Case Study</span>
+      <div class="bc-val">100<em>%</em></div>
+      <div class="bc-sub">Market adoption · international rollout</div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Lyles Mom</p>
+  <p><a href="mailto:llyles97@gmail.com">llyles97@gmail.com</a></p>
+  <p><a href="https://github.com/llyles97-cmyk" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="https://instagram.com/cultcirculation" target="_blank">@cultcirculation</a></p>
+</footer>
+
+</body>
+</html>
