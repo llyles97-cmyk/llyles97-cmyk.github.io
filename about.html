@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — Lyles Mom</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .about-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 100px 40px;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .about-left { }
+
+    .about-bio {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--muted);
+      margin-top: 28px;
+    }
+
+    .about-bio p { margin-bottom: 20px; }
+    .about-bio p:last-child { margin-bottom: 0; }
+    .about-bio strong { color: var(--white); font-weight: 500; }
+    .about-bio em { color: var(--green); font-style: normal; }
+
+    .about-quote {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.5;
+      letter-spacing: -0.02em;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    .about-right {
+      position: sticky;
+      top: calc(var(--nav-h) + 40px);
+    }
+
+    .info-block {
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+
+    .info-block-head {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: var(--bg2);
+    }
+
+    .info-row {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .info-row:last-child { border-bottom: none; }
+
+    .info-key {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 2px;
+    }
+
+    .info-val {
+      font-size: 0.88rem;
+      color: var(--white);
+      line-height: 1.5;
+    }
+
+    .info-val a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 16px 20px;
+    }
+
+    .case-study-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border: 1px solid var(--border);
+      margin-top: 20px;
+      background: var(--bg2);
+      transition: all 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .case-study-link:hover { border-color: var(--green); background: var(--bg3); }
+
+    .cs-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .cs-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+    }
+
+    .cs-arrow {
+      font-size: 1.2rem;
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+
+    .case-study-link:hover .cs-arrow { color: var(--green); transform: translate(4px, -4px); }
+
+    @media (max-width: 900px) {
+      .about-wrap { grid-template-columns: 1fr; padding: 60px 20px; gap: 60px; }
+      .about-right { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Lyles <span>Mom</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main class="page">
+  <div class="about-wrap">
+
+    <!-- Left: Bio -->
+    <div class="about-left fade-up">
+      <span class="eyebrow">About</span>
+      <h1 class="section-title">Lyles Mom</h1>
+
+      <div class="about-bio">
+        <p>
+          I'm a <strong>personalization strategist and audience intelligence analyst</strong>
+          based in Philadelphia. I specialize in turning behavioral data into systems that
+          actually influence how organizations make decisions — not just how they report on them.
+        </p>
+
+        <p>
+          Over the past several years, I’ve led <strong>global personalization and analytics initiatives</strong>
+          within a large-scale enterprise environment, supporting 10+ international markets. My work spans
+          audience segmentation, engagement modeling, experimentation frameworks, and omnichannel
+          measurement — translating complex datasets into strategies that teams can execute on.
+        </p>
+
+        <p>
+          I focus on a specific problem: <em>the gap between what systems measure and what people actually do.</em>
+          Most reporting frameworks are built for consistency, not accuracy. They flatten behavior into metrics
+          that are easy to track but difficult to act on. I build models, scoring systems, and analytical
+          frameworks that surface those gaps — and turn them into opportunities.
+        </p>
+
+        <p>
+          Alongside my professional work, I’m building <strong>Cult Circulation</strong> — a media and analytics
+          platform exploring how attention moves across culture, platforms, and audiences. It’s a space where
+          I apply audience intelligence thinking to music, media, and digital ecosystems, bridging structured
+          data with real-world behavior.
+        </p>
+
+        <p>
+          I’m currently focused on roles in <strong>audience intelligence, consumer insights, and measurement
+          strategy</strong> across media, streaming, healthcare, and platform-driven companies. I’m especially
+          interested in environments where data is abundant, signals are noisy, and clarity creates
+          competitive advantage.
+        </p>
+
+        <p>
+          Outside of work, I spend a lot of time in theaters, studying how stories are structured and received,
+          and thinking about how attention forms, peaks, and disappears — both on screen and in data.
+        </p>
+      </div>
+
+      <blockquote class="about-quote fade-up delay-1">
+        "The gap between what institutions measure and what audiences actually do
+        is not a bug — it is a feature of how measurement systems get built."
+      </blockquote>
+
+      <div class="about-bio fade-up delay-2">
+        <p>
+          I'm currently targeting roles in <strong>audience intelligence, consumer insights,
+          and measurement strategy</strong> at music, media, healthcare, and corporate
+          analytics organizations. If the role involves finding the signal inside noisy
+          data and translating it into something a stakeholder can act on, I want to hear
+          about it.
+        </p>
+      </div>
+
+      <!-- Case study PDF link -->
+      <a class="case-study-link fade-up delay-3" href="mcp-case-study.pdf" target="_blank">
+        <div>
+          <span class="cs-label">Professional Work Sample</span>
+          <span class="cs-title">MCP Adoption Case Study — PDF</span>
+        </div>
+        <span class="cs-arrow">↗</span>
+      </a>
+    </div>
+
+    <!-- Right: Info sidebar -->
+    <div class="about-right fade-up delay-2">
+
+      <div class="info-block">
+        <div class="info-block-head">Details</div>
+        <div class="info-row">
+          <span class="info-key">Based</span>
+          <span class="info-val">Philadelphia, PA</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Role</span>
+          <span class="info-val">Global Marketing Analytics & Personalization Specialist</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Company</span>
+          <span class="info-val">Merck (MSD)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Education</span>
+          <span class="info-val">MSB Business Communications, UMPI (in progress)<br/>BA Business Administration, UMPI</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Brand</span>
+          <span class="info-val"><a href="https://instagram.com/cultcirculation" target="_blank">@cultcirculation</a></span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">GitHub</span>
+          <span class="info-val"><a href="https://github.com/llyles97-cmyk" target="_blank">llyles97-cmyk</a></span>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-head">Core Skills</div>
+        <div class="skills-list">
+          <span class="tag green">SQL</span>
+          <span class="tag green">Python</span>
+          <span class="tag green">Tableau</span>
+          <span class="tag">Salesforce MCP</span>
+          <span class="tag">Audience Segmentation</span>
+          <span class="tag">Divergence Scoring</span>
+          <span class="tag">A/B Testing</span>
+          <span class="tag">Funnel Analysis</span>
+          <span class="tag">First-Party Data</span>
+          <span class="tag">Google Analytics</span>
+          <span class="tag">BigQuery</span>
+          <span class="tag blue">Amplitude</span>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-head">Target Roles</div>
+        <div class="info-row">
+          <span class="info-key">Primary</span>
+          <span class="info-val">Audience Intelligence, Consumer Insights, Measurement Strategy</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Industries</span>
+          <span class="info-val">Music / Media, Streaming, Healthcare, Corporate CX</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Companies</span>
+          <span class="info-val">Spotify, Luminate, Billboard, UMG, Netflix, Roku, Digital Health</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Lyles Mom</p>
+  <p><a href="mailto:llyles97@gmail.com">llyles97@gmail.com</a></p>
+  <p><a href="https://github.com/llyles97-cmyk" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="https://instagram.com/cultcirculation" target="_blank">@cultcirculation</a></p>
+</footer>
+
+</body>
+</html>
